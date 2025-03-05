@@ -129,3 +129,94 @@ For more information about Ultravox and its capabilities, visit: [Ultravox Docum
 ## License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details.
+
+# Twilio Voice AI Assistant avec Ultravox
+
+> Implémentation d'un assistant vocal IA utilisant Twilio et Ultravox pour gérer les appels entrants avec des conversations alimentées par l'IA.
+
+## Introduction
+
+Ce projet démontre comment construire un assistant vocal intelligent en utilisant Twilio et Ultravox AI. Ce système gère les appels entrants, idéal pour le service client, la qualification de leads ou les suivis automatisés.
+
+## Caractéristiques principales
+
+- **Conversations vocales intelligentes**: Interactions en langage naturel alimentées par Ultravox AI
+- **Capture des informations de contact**: Capture et utilise automatiquement les informations de l'appelant
+- **Gestion de contexte dynamique**: Adapte la conversation en fonction du contexte de l'appel
+- **Voix professionnelle**: Utilise une synthèse vocale de haute qualité pour des conversations naturelles
+- **Scripts personnalisables**: Prompts système facilement modifiables pour différents cas d'utilisation
+
+## Stack technique
+
+- **Twilio**: Infrastructure de téléphonie
+- **Ultravox AI**: Moteur de conversation IA
+- **Express.js**: Framework de serveur web
+- **dotenv**: Configuration d'environnement
+- **Node.js**: Environnement d'exécution
+- **ngrok**: Tunnel pour exposer le serveur local
+
+## Architecture du système
+
+### Flux d'appel entrant
+- Point de terminaison webhook pour les appels entrants
+- Capture automatique des informations de l'appelant
+- Génération dynamique de réponses IA
+
+## Instructions d'installation
+
+### Prérequis
+- Node.js installé
+- Compte Twilio avec:
+  - SID du compte
+  - Token d'authentification
+  - Numéro de téléphone Twilio
+- Clé API Ultravox
+
+### Installation
+
+1. Cloner le dépôt:
+   ```bash
+   git clone https://github.com/RollandMELET/kno2gether-twilio-incoming-ultravox-agent.git
+   cd kno2gether-twilio-incoming-ultravox-agent
+   ```
+
+2. Installer les dépendances:
+   ```bash
+   npm install
+   ```
+
+3. Configurer les variables d'environnement:
+   ```
+   ULTRAVOX_API_KEY=votre_clé_api_ultravox
+   ```
+
+### Exécution de l'application
+
+1. Démarrer le serveur:
+   ```bash
+   node index.js
+   ```
+
+2. Exposer le serveur avec ngrok:
+   ```bash
+   ngrok http 3000
+   ```
+
+3. Configurer le webhook Twilio pour pointer vers votre URL ngrok + "/incoming"
+   ```
+   https://votre-url-ngrok.app/incoming
+   ```
+
+## Limitations connues
+
+- Nécessite une connexion internet stable
+- Le point de terminaison webhook doit être accessible publiquement
+- La qualité des appels dépend des conditions du réseau
+- Limité à un flux de conversation à la fois
+
+## Documentation
+Pour plus d'informations sur Ultravox et ses capacités, visitez: [Documentation Ultravox](https://docs.ultravox.ai)
+
+## Licence
+
+Ce projet est sous licence Apache 2.0 - voir le fichier [LICENSE](LICENSE) pour plus de détails.
